@@ -76,6 +76,26 @@ export const constantRoutes = [
         meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
       }
     ]
+  },
+  {
+    path: '/service',
+    component: Layout,
+    redirect: '/service/list',
+    children: [
+      {
+        path: 'list',
+        component: () => import('@/views/service/list'),
+        name: '服务列表',
+        meta: { title: '服务列表', icon: 'component', affix: true }
+      },
+      {
+        path: 'service_add_http',
+        component: () => import('@/views/service/http'),
+        name: '创建HTTP服务',
+        meta: { title: '创建HTTP服务', icon: 'component', affix: false },
+        hidden: true
+      }
+    ]
   }
 ]
 
