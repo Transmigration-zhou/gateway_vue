@@ -10,6 +10,16 @@
           添加HTTP服务
         </el-button>
       </router-link>
+      <router-link :to="'/service/service_create_tcp'">
+        <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit">
+          添加TCP服务
+        </el-button>
+      </router-link>
+      <router-link :to="'/service/service_create_grpc'">
+        <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit">
+          添加GRPC服务
+        </el-button>
+      </router-link>
     </div>
 
     <el-table
@@ -66,7 +76,17 @@
             <el-button type="primary" size="mini">
               统计
             </el-button>
-          <router-link :to="'/service/service_edit_http/'+row.id">
+          <router-link v-if="row.load_type===0" :to="'/service/service_edit_http/'+row.id">
+            <el-button type="primary" size="mini">
+              修改
+            </el-button>
+          </router-link>
+          <router-link v-if="row.load_type===1" :to="'/service/service_edit_tcp/'+row.id">
+            <el-button type="primary" size="mini">
+              修改
+            </el-button>
+          </router-link>
+          <router-link v-if="row.load_type===2" :to="'/service/service_edit_grpc/'+row.id">
             <el-button type="primary" size="mini">
               修改
             </el-button>
@@ -148,7 +168,7 @@ export default {
         const deleteQuery = {
           'id': row.id
         }
-        serviceDelete(deleteQuery).then(response => {
+        serviceDelete(deleteQuery).then(_response => {
           this.$notify({
             title: 'Success',
             message: '删除成功',
