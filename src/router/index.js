@@ -129,6 +129,13 @@ export const constantRoutes = [
         name: '修改GRPC服务',
         meta: { title: '修改GRPC服务', icon: 'component', affix: false },
         hidden: true
+      },
+      {
+        path: 'service_statistics/:id(\\d+)',
+        component: () => import('@/views/service/statistics'),
+        name: '服务统计',
+        meta: { title: '服务统计', icon: 'chart', affix: false },
+        hidden: true
       }
     ]
   }

@@ -25,7 +25,7 @@
           <el-dropdown-item @click.native="changePwd">
             <span style="display:block;">修改密码</span>
           </el-dropdown-item>
-          <el-dropdown-item :divided="true" @click.native="logout">
+          <el-dropdown-item divided @click.native="logout">
             <span style="display:block;">Log Out</span>
           </el-dropdown-item>
         </el-dropdown-menu>

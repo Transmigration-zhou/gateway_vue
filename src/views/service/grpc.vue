@@ -79,7 +79,7 @@ export default {
         service_flow_limit: '',
         round_type: 0,
         ip_list: '',
-        weight_list: '',
+        weight_list: ''
       }
     }
   },

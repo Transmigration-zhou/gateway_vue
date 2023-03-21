@@ -71,3 +71,11 @@ export function serviceUpdateGrpc(data) {
     data
   })
 }
+
+export function serviceStatistics(query) {
+  return request({
+    url: '/service/service_statistics',
+    method: 'get',
+    params: query
+  })
+}

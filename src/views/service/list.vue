@@ -22,15 +22,7 @@
       </router-link>
     </div>
 
-    <el-table
-      :key="tableKey"
-      v-loading="listLoading"
-      :data="list"
-      border
-      fit
-      highlight-current-row
-      style="width: 100%;"
-    >
+    <el-table :key="tableKey" v-loading="listLoading" :data="list" border fit highlight-current-row style="width: 100%;">
       <el-table-column label="ID" prop="id" align="center" width="50">
         <template slot-scope="{row}">
           <span>{{ row.id }}</span>
@@ -73,25 +65,27 @@
       </el-table-column>
       <el-table-column label="操作" align="center" width="230" class-name="small-padding fixed-width">
         <template slot-scope="{row,$index}">
+          <router-link :to="'/service/service_statistics/' + row.id">
             <el-button type="primary" size="mini">
               统计
             </el-button>
-          <router-link v-if="row.load_type===0" :to="'/service/service_edit_http/'+row.id">
+          </router-link>
+          <router-link v-if="row.load_type === 0" :to="'/service/service_edit_http/' + row.id">
             <el-button type="primary" size="mini">
               修改
             </el-button>
           </router-link>
-          <router-link v-if="row.load_type===1" :to="'/service/service_edit_tcp/'+row.id">
+          <router-link v-if="row.load_type === 1" :to="'/service/service_edit_tcp/' + row.id">
             <el-button type="primary" size="mini">
               修改
             </el-button>
           </router-link>
-          <router-link v-if="row.load_type===2" :to="'/service/service_edit_grpc/'+row.id">
+          <router-link v-if="row.load_type === 2" :to="'/service/service_edit_grpc/' + row.id">
             <el-button type="primary" size="mini">
               修改
             </el-button>
           </router-link>
-          <el-button size="mini" type="danger" @click="handleDelete(row,$index)">
+          <el-button size="mini" type="danger" @click="handleDelete(row, $index)">
             删除
           </el-button>
         </template>
