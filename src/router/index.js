@@ -81,60 +81,96 @@ export const constantRoutes = [
     path: '/service',
     component: Layout,
     redirect: '/service/list',
+    meta: { title: '服务管理' },
     children: [
       {
         path: 'list',
         component: () => import('@/views/service/list'),
         name: '服务列表',
-        meta: { title: '服务列表', icon: 'component', affix: true }
+        meta: { title: '服务列表', icon: 'component' }
       },
       {
         path: 'service_create_http',
         component: () => import('@/views/service/http'),
         name: '创建HTTP服务',
-        meta: { title: '创建HTTP服务', icon: 'component', affix: false },
+        meta: { title: '创建HTTP服务' },
         hidden: true
       },
       {
         path: 'service_edit_http/:id(\\d+)',
         component: () => import('@/views/service/http'),
         name: '修改HTTP服务',
-        meta: { title: '修改HTTP服务', icon: 'component', affix: false },
+        meta: { title: '修改HTTP服务' },
         hidden: true
       },
       {
         path: 'service_create_tcp',
         component: () => import('@/views/service/tcp'),
         name: '创建TCP服务',
-        meta: { title: '创建TCP服务', icon: 'component', affix: false },
+        meta: { title: '创建TCP服务' },
         hidden: true
       },
       {
         path: 'service_edit_tcp/:id(\\d+)',
         component: () => import('@/views/service/tcp'),
         name: '修改TCP服务',
-        meta: { title: '修改TCP服务', icon: 'component', affix: false },
+        meta: { title: '修改TCP服务' },
         hidden: true
       },
       {
         path: 'service_create_grpc',
         component: () => import('@/views/service/grpc'),
         name: '创建GRPC服务',
-        meta: { title: '创建GRPC服务', icon: 'component', affix: false },
+        meta: { title: '创建GRPC服务' },
         hidden: true
       },
       {
         path: 'service_edit_grpc/:id(\\d+)',
         component: () => import('@/views/service/grpc'),
         name: '修改GRPC服务',
-        meta: { title: '修改GRPC服务', icon: 'component', affix: false },
+        meta: { title: '修改GRPC服务' },
         hidden: true
       },
       {
         path: 'service_statistics/:id(\\d+)',
         component: () => import('@/views/service/statistics'),
         name: '服务统计',
-        meta: { title: '服务统计', icon: 'chart', affix: false },
+        meta: { title: '服务流量统计', noCache: true },
+        hidden: true
+      }
+    ]
+  },
+  {
+    path: '/tenant',
+    component: Layout,
+    redirect: '/tenant/list',
+    meta: { title: '租户管理' },
+    children: [
+      {
+        path: 'tenant_list',
+        component: () => import('@/views/tenant/list'),
+        name: '租户列表',
+        meta: { title: '租户列表', icon: 'user' }
+      },
+      {
+        path: 'tenant_create',
+        component: () => import('@/views/tenant/tenant'),
+        name: 'Createtenant',
+        meta: { title: '创建租户' },
+        hidden: true
+      },
+      {
+        path: 'tenant_edit/:id(\\d+)',
+        component: () => import('@/views/tenant/tenant'),
+        name: 'Edittenant',
+        meta: { title: '修改租户' },
+        hidden: true
+      },
+      {
+        path: 'tenant_statistics/:id(\\d+)',
+        component: () => import('@/views/tenant/statistics'),
+        name: 'tenantStatistics',
+        meta: { title: '租户流量统计', noCache: true },
         hidden: true
       }
     ]

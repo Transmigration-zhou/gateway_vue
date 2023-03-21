@@ -3,7 +3,7 @@
     <div class="filter-container">
       <el-input v-model="listQuery.info" placeholder="服务名称/服务描述" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter" />
       <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">
-        Search
+        搜索
       </el-button>
       <router-link :to="'/service/service_create_http'">
         <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit">
@@ -92,7 +92,7 @@
       </el-table-column>
     </el-table>
 
-    <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+    <pagination v-show="total > 0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
   </div>
 </template>
 
@@ -153,7 +153,7 @@ export default {
       this.listQuery.page_no = 1
       this.getList()
     },
-    handleDelete(row, index) {
+    handleDelete(row) {
       this.$confirm('此操作将删除该记录, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
@@ -179,7 +179,6 @@ export default {
           duration: 2000
         })
       })
-      // this.list.splice(index, 1)
     }
   }
 }

@@ -3,20 +3,20 @@
     <el-row>
       <el-card class="box-card">
         <div slot="header" class="clearfix">
-          <span v-if="isEdit===false">创建HTTP服务</span>
-          <span v-if="isEdit===true">修改HTTP服务</span>
+          <span v-if="isEdit === false">创建HTTP服务</span>
+          <span v-if="isEdit === true">修改HTTP服务</span>
         </div>
         <div style="margin-bottom:50px;">
           <el-form ref="form" :model="form" label-width="140px">
             <el-form-item label="服务名称" class="is-required">
-              <el-input v-model="form.service_name" placeholder="6-128位字母数字下划线" :disabled="isEdit===true" />
+              <el-input v-model="form.service_name" placeholder="6-128位字母数字下划线" :disabled="isEdit === true" />
             </el-form-item>
             <el-form-item label="服务描述" class="is-required">
               <el-input v-model="form.service_desc" placeholder="最多255字符，必填" />
             </el-form-item>
             <el-form-item label="接入类型" class="is-required">
-              <el-input v-model="form.rule" :disabled="isEdit===true" placeholder="路径格式：/user/,域名格式：www.test.com" class="input-with-select">
-                <el-select slot="prepend" v-model="form.rule_type" placeholder="请选择" style="width:80px" :disabled="isEdit===true">
+              <el-input v-model="form.rule" :disabled="isEdit === true" placeholder="路径格式：/user/,域名格式：www.test.com" class="input-with-select">
+                <el-select slot="prepend" v-model="form.rule_type" placeholder="请选择" style="width:80px" :disabled="isEdit === true">
                   <el-option label="路径" :value="0" />
                   <el-option label="域名" :value="1" />
                 </el-select>
@@ -25,29 +25,17 @@
             <el-row>
               <el-col :span="8">
                 <el-form-item label="支持https">
-                  <el-switch
-                    v-model="form.need_https"
-                    :active-value="1"
-                    :inactive-value="0"
-                  />
+                  <el-switch v-model="form.need_https" :active-value="1" :inactive-value="0" />
                 </el-form-item>
               </el-col>
               <el-col :span="8">
                 <el-form-item label="支持strip_uri">
-                  <el-switch
-                    v-model="form.need_strip_uri"
-                    :active-value="1"
-                    :inactive-value="0"
-                  />
+                  <el-switch v-model="form.need_strip_uri" :active-value="1" :inactive-value="0" />
                 </el-form-item>
               </el-col>
               <el-col :span="8">
                 <el-form-item label="支持websocket">
-                  <el-switch
-                    v-model="form.need_websocket"
-                    :active-value="1"
-                    :inactive-value="0"
-                  />
+                  <el-switch v-model="form.need_websocket" :active-value="1" :inactive-value="0" />
                 </el-form-item>
               </el-col>
             </el-row>
@@ -58,11 +46,7 @@
               <el-input v-model="form.header_transfor" type="textarea" autosize placeholder="header转换支持 add(增加)/del(删除)/edit(修改) 格式：add headerName headValue" />
             </el-form-item>
             <el-form-item label="开启验证">
-              <el-switch
-                v-model="form.open_auth"
-                :active-value="1"
-                :inactive-value="0"
-              />
+              <el-switch v-model="form.open_auth" :active-value="1" :inactive-value="0" />
             </el-form-item>
             <el-form-item label="IP白名单">
               <el-input v-model="form.white_list" type="textarea" autosize placeholder="格式：127.0.0.1 多条换行，白名单优先于黑名单" />

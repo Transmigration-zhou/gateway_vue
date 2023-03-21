@@ -6,10 +6,10 @@
 
 <script>
 import Chart from '@/components/Charts/LineStatistics'
-import { serviceStatistics, serviceDetail } from '@/api/service'
+import { tenantStatistics, tenantDetail } from '@/api/tenant'
 
 export default {
-  name: 'ServiceStatistics',
+  name: 'TenantStatistics',
   components: { Chart },
   data() {
     return {
@@ -25,12 +25,12 @@ export default {
     this.fetchStatistics(id)
   },
   methods: {
-    fetchStatistics(id) {
+    fetchStat(id) {
       const query = { 'id': id }
-      serviceStatistics(query).then(response1 => {
-        serviceDetail(query).then(response2 => {
+      tenantStatistics(query).then(response1 => {
+        tenantDetail(query).then(response2 => {
           this.chartData = {
-            'title': response2.data.info.service_name + '服务统计',
+            'title': response2.data.name + '租户统计',
             'today': response1.data.today,
             'yesterday': response1.data.yesterday
           }
@@ -46,6 +46,7 @@ export default {
 .chart-container{
   position: relative;
   width: 100%;
+  background-color: #fff;
   height: calc(100vh - 84px);
 }
 </style>
