@@ -25,7 +25,7 @@ export default {
     this.fetchStatistics(id)
   },
   methods: {
-    fetchStat(id) {
+    fetchStatistics(id) {
       const query = { 'id': id }
       tenantStatistics(query).then(response1 => {
         tenantDetail(query).then(response2 => {

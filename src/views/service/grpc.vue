@@ -18,7 +18,7 @@
               <el-input v-model="form.port" :disabled="isEdit===true" placeholder="需要设置8001-8999范围内数字，必填" />
             </el-form-item>
             <el-form-item label="metadata转换">
-              <el-input v-model="form.header_transfor" placeholder="metadata转换支持增加(add)、删除(del)、修改(edit) 格式: add headname headvalue 多条换行" type="textarea" :autosize="{ minRows: 2, maxRows: 20}" />
+              <el-input v-model="form.header_transfer" placeholder="metadata转换支持增加(add)、删除(del)、修改(edit) 格式: add headname headvalue 多条换行" type="textarea" :autosize="{ minRows: 2, maxRows: 20}" />
             </el-form-item>
             <el-form-item label="开启验证">
               <el-switch
