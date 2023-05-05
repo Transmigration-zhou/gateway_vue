@@ -18,7 +18,7 @@
 
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
-          <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
+          <img :src="require('../../assets/avatar/avatar.gif')+'?imageView2/1/w/80/h/80'" class="user-avatar">
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown">
@@ -71,13 +71,6 @@ export default {
     Screenfull,
     SizeSelect
   },
-  computed: {
-    ...mapGetters([
-      'sidebar',
-      'avatar',
-      'device'
-    ])
-  },
   data() {
     return {
       dialogFormVisible: false,
@@ -89,6 +82,13 @@ export default {
         password: [{ required: true, message: 'password is required', trigger: 'blur' }]
       }
     }
+  },
+  computed: {
+    ...mapGetters([
+      'sidebar',
+      'avatar',
+      'device'
+    ])
   },
   methods: {
     toggleSideBar() {
