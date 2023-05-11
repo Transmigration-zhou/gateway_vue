@@ -72,6 +72,7 @@ export default {
         service_name: '',
         service_desc: '',
         port: '',
+        header_transfer: '',
         open_auth: 0,
         white_list: '',
         black_list: '',
@@ -96,12 +97,14 @@ export default {
       const formData = Object.assign({}, this.form)
       console.log(formData)
       formData.port = Number(formData.port)
+      formData.header_transfer = formData.header_transfer.replace(/\n/g, ',')
       formData.white_list = formData.white_list.replace(/\n/g, ',')
       formData.black_list = formData.black_list.replace(/\n/g, ',')
       formData.client_ip_flow_limit = Number(formData.client_ip_flow_limit)
       formData.service_flow_limit = Number(formData.service_flow_limit)
       formData.ip_list = formData.ip_list.replace(/\n/g, ',')
       formData.weight_list = formData.weight_list.replace(/\n/g, ',')
+      console.log(formData)
       if (this.isEdit) {
         serviceUpdateGrpc(formData).then(_response => {
           this.submitDisabled = false
@@ -135,6 +138,7 @@ export default {
         this.form.service_name = response.data.info.service_name
         this.form.service_desc = response.data.info.service_desc
         this.form.port = response.data.grpc_rule.port
+        this.form.header_transfer = response.data.grpc_rule.header_transfer
         this.form.open_auth = response.data.access_control.open_auth
         this.form.white_list = response.data.access_control.white_list.replace(/,/g, '\n')
         this.form.black_list = response.data.access_control.black_list.replace(/,/g, '\n')
