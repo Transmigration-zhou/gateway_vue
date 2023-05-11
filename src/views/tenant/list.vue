@@ -76,7 +76,7 @@ export default {
   directives: { waves },
   data() {
     return {
-      tableKey: 'qq',
+      tableKey: 0,
       list: null,
       total: 0,
       listLoading: true,

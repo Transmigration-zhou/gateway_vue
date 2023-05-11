@@ -91,8 +91,7 @@
         </template>
       </el-table-column>
     </el-table>
-
-    <pagination v-show="total > 0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />
+    <pagination v-show="total > 0" :total="total" :page.sync="listQuery.page_no" :limit.sync="listQuery.page_size" @pagination="getList" />
   </div>
 </template>
 
@@ -150,7 +149,6 @@ export default {
       })
     },
     handleFilter() {
-      this.listQuery.page_no = 1
       this.getList()
     },
     handleDelete(row) {
